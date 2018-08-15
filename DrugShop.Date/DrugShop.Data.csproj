@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41AC3720-DBD5-4ED5-9AB2-3B6BE1984809}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrugShop.Date</RootNamespace>
+    <AssemblyName>DrugShop.Date</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAOFactory.cs" />
+    <Compile Include="IBillsDAO.cs" />
+    <Compile Include="IBillsTypeDAO.cs" />
+    <Compile Include="ICompanyDAO.cs" />
+    <Compile Include="ICompanyTypeDAO.cs" />
+    <Compile Include="IDrugCategoryDAO.cs" />
+    <Compile Include="IDrugsDAO.cs" />
+    <Compile Include="IDrugFromDAO.cs" />
+    <Compile Include="IEventLogDAO.cs" />
+    <Compile Include="IResourceDAO.cs" />
+    <Compile Include="IStockDAO.cs" />
+    <Compile Include="IStorehouseDAO.cs" />
+    <Compile Include="IUserDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServer\BillsDAO.cs" />
+    <Compile Include="SqlServer\BillsTypeDAO.cs" />
+    <Compile Include="SqlServer\CompanyDAO.cs" />
+    <Compile Include="SqlServer\CompanyTypeDAO.cs" />
+    <Compile Include="SqlServer\DataAccessUtil.cs" />
+    <Compile Include="SqlServer\DrugCategoryDAO.cs" />
+    <Compile Include="SqlServer\DrugsDAO.cs" />
+    <Compile Include="SqlServer\DrugFromDAO.cs" />
+    <Compile Include="SqlServer\EventLogDAO.cs" />
+    <Compile Include="SqlServer\ResourceDAO.cs" />
+    <Compile Include="SqlServer\StockDAO.cs" />
+    <Compile Include="SqlServer\StorehouseDAO.cs" />
+    <Compile Include="SqlServer\UserDAO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Access\" />
+    <Folder Include="MySQL\" />
+    <Folder Include="Oracle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DrugShop.Model\DrugShop.Model.csproj">
+      <Project>{31e6c5f6-8dc9-45b7-8964-2a81fc1b2109}</Project>
+      <Name>DrugShop.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

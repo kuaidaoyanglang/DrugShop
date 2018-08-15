@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetBills" targetNamespace="http://tempuri.org/DataSetBills.xsd" xmlns:mstns="http://tempuri.org/DataSetBills.xsd" xmlns="http://tempuri.org/DataSetBills.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DrugShopConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DrugShopConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DrugShop.UI.Properties.Settings.GlobalReference.Default.DrugShopConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableAllBillsTableAdapter" GeneratorDataComponentClassName="DataTableAllBillsTableAdapter" Name="DataTableAllBills" UserDataComponentName="DataTableAllBillsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DrugShopConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillDataTable" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataFromDataTable" GeneratorSourceName="FillDataTable" GetMethodModifier="Public" GetMethodName="GetDataFromDataTable" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataFromDataTable" UserSourceName="FillDataTable">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   MD_Bills.ID AS [Mb.ID], MD_Bills.BillsCode AS [Mb.BillsCode], MD_Bills.Storehouse_ID AS [Mb.Storehouse_ID], 
+                MD_Bills.BillsType_ID AS [Mb.BillsType_ID], MD_Bills.Maker AS [Mb.Maker], MD_Bills.MakerDate AS [Mb.MakerDate], 
+                MD_Bills.CreateDate AS [Mb.CreateDate], MD_Bills.Actived AS [Mb.Actived], MD_Bills.IsCancleOut AS [Mb.IsCancleOut], 
+                MD_Bills.IsRedBill AS [Mb.IsRedBill], MD_Bills.Company_ID AS [Mb.Company_ID], 
+                MD_Bills.DisCount AS [Mb.DisCount], MD_Bills.Remark AS [Mb.Remark], MD_BillsItem.ID AS [Mbi.ID], 
+                MD_BillsItem.Bills_ID AS [Mbi.Bills_ID], MD_BillsItem.Drugs_ID AS [Mbi.Drugs_ID], 
+                MD_BillsItem.UnitPrice AS [Mbi.UnitPrice], MD_BillsItem.Count AS [Mbi.Count], MD_BillsItem.Money AS [Mbi.Money], 
+                MD_BillsItem.Remark AS [Mbi.Remark], MD_BillsType.ID AS [Mbt.ID], MD_BillsType.Code AS [Mbt.Code], 
+                MD_BillsType.Name AS [Mbt.Name], MD_BillsType.IsOut AS [Mbt.IsOut], MD_BillsType.Actived AS MbtActived, 
+                MD_BillsType.Remark AS [Mbt.Remark], MD_Company.ID AS [Mc.ID], 
+                MD_Company.CompanyCode AS [Mc.CompanyCode], MD_Company.CompanyName AS [Mc.CompanyName], 
+                MD_Company.CompanyType_ID AS [Mc.CompanyType_ID], MD_Company.Actived AS [Mc.Actived], 
+                MD_Company.Remark AS [Mc.Remark], MD_CompanyType.ID AS [Mct.ID], 
+                MD_CompanyType.CompanyTypeCode AS [Mct.CompanyTypeCode], 
+                MD_CompanyType.CompanyTypeName AS [Mct.CompanyTypeCode], MD_CompanyType.Actived AS [Mct.Actived], 
+                MD_CompanyType.Remark AS [Mct.Remark], MD_Drugs.ID AS [Md.ID], MD_Drugs.DrugCode AS [Md.DrugCode], 
+                MD_Drugs.DrugName AS [Md.DrugName], MD_Drugs.UnitPrice AS [Md.UnitPrice], MD_Drugs.Standard AS [Md.Standard], 
+                MD_Drugs.Unit AS [Md.Unit], MD_Drugs.DrugFrom_ID AS [Md.DrugFrom_ID], 
+                MD_Drugs.DrugCategory_ID AS [Md.DrugCategory_ID], MD_Drugs.Actived AS [Md.Actived], 
+                MD_Drugs.Remark AS [Md.Remark], MD_DrugCategory.ID AS [Mdc.Id], 
+                MD_DrugCategory.DrugCategoryCode AS [Mdc.Code], MD_DrugCategory.DrugCategoryName AS [Mdc.Name], 
+                MD_DrugCategory.Actived AS [Mdc.Actived], MD_DrugCategory.Remark AS [Mdc.Remark], MD_DrugFrom.ID AS [Mdf.ID], 
+                MD_DrugFrom.DrugFromCode AS [Mdf.Code], MD_DrugFrom.DrugFromName AS [Mdf.Name], 
+                MD_DrugFrom.Actived AS [Mdf.Actived], MD_DrugFrom.Remark AS [Mdf.Remark], MD_Storehouse.ID AS [Msh.ID], 
+                MD_Storehouse.StorehouseCode AS [Msh.Code], MD_Storehouse.StorehouseName AS [Msh.Name], 
+                MD_Storehouse.Actived AS [Msh.Actived], MD_Storehouse.Remark AS [Msh.Remark]
+FROM      MD_Bills INNER JOIN
+                MD_BillsItem ON MD_Bills.ID = MD_BillsItem.Bills_ID INNER JOIN
+                MD_BillsType ON MD_Bills.BillsType_ID = MD_BillsType.ID INNER JOIN
+                MD_Company ON MD_Bills.Company_ID = MD_Company.ID INNER JOIN
+                MD_CompanyType ON MD_Company.CompanyType_ID = MD_CompanyType.ID INNER JOIN
+                MD_Drugs ON MD_BillsItem.Drugs_ID = MD_Drugs.ID INNER JOIN
+                MD_DrugCategory ON MD_Drugs.DrugCategory_ID = MD_DrugCategory.ID INNER JOIN
+                MD_DrugFrom ON MD_Drugs.DrugFrom_ID = MD_DrugFrom.ID INNER JOIN
+                MD_Storehouse ON MD_Bills.Storehouse_ID = MD_Storehouse.ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Mb.ID" DataSetColumn="Mb_ID" />
+              <Mapping SourceColumn="Mb.BillsCode" DataSetColumn="Mb_BillsCode" />
+              <Mapping SourceColumn="Mb.Storehouse_ID" DataSetColumn="Mb_Storehouse_ID" />
+              <Mapping SourceColumn="Mb.BillsType_ID" DataSetColumn="Mb_BillsType_ID" />
+              <Mapping SourceColumn="Mb.MakerDate" DataSetColumn="Mb_MakerDate" />
+              <Mapping SourceColumn="Mb.CreateDate" DataSetColumn="Mb_CreateDate" />
+              <Mapping SourceColumn="Mb.Actived" DataSetColumn="Mb_Actived" />
+              <Mapping SourceColumn="Mb.IsCancleOut" DataSetColumn="Mb_IsCancleOut" />
+              <Mapping SourceColumn="Mb.IsRedBill" DataSetColumn="Mb_IsRedBill" />
+              <Mapping SourceColumn="Mb.Company_ID" DataSetColumn="Mb_Company_ID" />
+              <Mapping SourceColumn="Mb.DisCount" DataSetColumn="Mb_DisCount" />
+              <Mapping SourceColumn="Mb.Remark" DataSetColumn="Mb_Remark" />
+              <Mapping SourceColumn="Mbi.ID" DataSetColumn="Mbi_ID" />
+              <Mapping SourceColumn="Mbi.Bills_ID" DataSetColumn="Mbi_Bills_ID" />
+              <Mapping SourceColumn="Mbi.Drugs_ID" DataSetColumn="Mbi_Drugs_ID" />
+              <Mapping SourceColumn="Mbi.UnitPrice" DataSetColumn="Mbi_UnitPrice" />
+              <Mapping SourceColumn="Mbi.Count" DataSetColumn="Mbi_Count" />
+              <Mapping SourceColumn="Mbi.Money" DataSetColumn="Mbi_Money" />
+              <Mapping SourceColumn="Mbi.Remark" DataSetColumn="Mbi_Remark" />
+              <Mapping SourceColumn="Mbt.ID" DataSetColumn="Mbt_ID" />
+              <Mapping SourceColumn="Mbt.Code" DataSetColumn="Mbt_Code" />
+              <Mapping SourceColumn="Mbt.Name" DataSetColumn="Mbt_Name" />
+              <Mapping SourceColumn="Mbt.IsOut" DataSetColumn="Mbt_IsOut" />
+              <Mapping SourceColumn="MbtActived" DataSetColumn="MbtActived" />
+              <Mapping SourceColumn="Mbt.Remark" DataSetColumn="Mbt_Remark" />
+              <Mapping SourceColumn="Mc.ID" DataSetColumn="Mc_ID" />
+              <Mapping SourceColumn="Mc.CompanyCode" DataSetColumn="Mc_CompanyCode" />
+              <Mapping SourceColumn="Mc.CompanyName" DataSetColumn="Mc_CompanyName" />
+              <Mapping SourceColumn="Mc.CompanyType_ID" DataSetColumn="Mc_CompanyType_ID" />
+              <Mapping SourceColumn="Mc.Actived" DataSetColumn="Mc_Actived" />
+              <Mapping SourceColumn="Mc.Remark" DataSetColumn="Mc_Remark" />
+              <Mapping SourceColumn="Mct.ID" DataSetColumn="Mct_ID" />
+              <Mapping SourceColumn="Mct.CompanyTypeCode" DataSetColumn="Mct_CompanyTypeCode" />
+              <Mapping SourceColumn="Mct.CompanyTypeCode1" DataSetColumn="Mct_CompanyTypeCode1" />
+              <Mapping SourceColumn="Mct.Actived" DataSetColumn="Mct_Actived" />
+              <Mapping SourceColumn="Mct.Remark" DataSetColumn="Mct_Remark" />
+              <Mapping SourceColumn="Md.ID" DataSetColumn="Md_ID" />
+              <Mapping SourceColumn="Md.DrugCode" DataSetColumn="Md_DrugCode" />
+              <Mapping SourceColumn="Md.DrugName" DataSetColumn="Md_DrugName" />
+              <Mapping SourceColumn="Md.UnitPrice" DataSetColumn="Md_UnitPrice" />
+              <Mapping SourceColumn="Md.Standard" DataSetColumn="Md_Standard" />
+              <Mapping SourceColumn="Md.Unit" DataSetColumn="Md_Unit" />
+              <Mapping SourceColumn="Md.DrugFrom_ID" DataSetColumn="Md_DrugFrom_ID" />
+              <Mapping SourceColumn="Md.DrugCategory_ID" DataSetColumn="Md_DrugCategory_ID" />
+              <Mapping SourceColumn="Md.Actived" DataSetColumn="Md_Actived" />
+              <Mapping SourceColumn="Md.Remark" DataSetColumn="Md_Remark" />
+              <Mapping SourceColumn="Mdc.Id" DataSetColumn="Mdc_Id" />
+              <Mapping SourceColumn="Mdc.Code" DataSetColumn="Mdc_Code" />
+              <Mapping SourceColumn="Mdc.Name" DataSetColumn="Mdc_Name" />
+              <Mapping SourceColumn="Mdc.Actived" DataSetColumn="Mdc_Actived" />
+              <Mapping SourceColumn="Mdc.Remark" DataSetColumn="Mdc_Remark" />
+              <Mapping SourceColumn="Mdf.ID" DataSetColumn="Mdf_ID" />
+              <Mapping SourceColumn="Mdf.Code" DataSetColumn="Mdf_Code" />
+              <Mapping SourceColumn="Mdf.Name" DataSetColumn="Mdf_Name" />
+              <Mapping SourceColumn="Mdf.Actived" DataSetColumn="Mdf_Actived" />
+              <Mapping SourceColumn="Mdf.Remark" DataSetColumn="Mdf_Remark" />
+              <Mapping SourceColumn="Mb.Maker" DataSetColumn="Mb_Maker" />
+              <Mapping SourceColumn="Msh.ID" DataSetColumn="Msh_ID" />
+              <Mapping SourceColumn="Msh.Code" DataSetColumn="Msh_Code" />
+              <Mapping SourceColumn="Msh.Name" DataSetColumn="Msh_Name" />
+              <Mapping SourceColumn="Msh.Actived" DataSetColumn="Msh_Actived" />
+              <Mapping SourceColumn="Msh.Remark" DataSetColumn="Msh_Remark" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DrugShopConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBillsByBillsTypeAndMaker" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataTableByBillsTypeAndMaker" GeneratorSourceName="FillBillsByBillsTypeAndMaker" GetMethodModifier="Public" GetMethodName="GetDataTableByBillsTypeAndMaker" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataTableByBillsTypeAndMaker" UserSourceName="FillBillsByBillsTypeAndMaker">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   MD_Bills.ID AS [Mb.ID], MD_Bills.BillsCode AS [Mb.BillsCode], MD_Bills.Storehouse_ID AS [Mb.Storehouse_ID], 
+                MD_Bills.BillsType_ID AS [Mb.BillsType_ID], MD_Bills.Maker AS [Mb.Maker], MD_Bills.MakerDate AS [Mb.MakerDate], 
+                MD_Bills.CreateDate AS [Mb.CreateDate], MD_Bills.Actived AS [Mb.Actived], MD_Bills.IsCancleOut AS [Mb.IsCancleOut], 
+                MD_Bills.IsRedBill AS [Mb.IsRedBill], MD_Bills.Company_ID AS [Mb.Company_ID], 
+                MD_Bills.DisCount AS [Mb.DisCount], MD_Bills.Remark AS [Mb.Remark], MD_BillsItem.ID AS [Mbi.ID], 
+                MD_BillsItem.Bills_ID AS [Mbi.Bills_ID], MD_BillsItem.Drugs_ID AS [Mbi.Drugs_ID], 
+                MD_BillsItem.UnitPrice AS [Mbi.UnitPrice], MD_BillsItem.Count AS [Mbi.Count], MD_BillsItem.Money AS [Mbi.Money], 
+                MD_BillsItem.Remark AS [Mbi.Remark], MD_BillsType.ID AS [Mbt.ID], MD_BillsType.Code AS [Mbt.Code], 
+                MD_BillsType.Name AS [Mbt.Name], MD_BillsType.IsOut AS [Mbt.IsOut], MD_BillsType.Actived AS MbtActived, 
+                MD_BillsType.Remark AS [Mbt.Remark], MD_Company.ID AS [Mc.ID], 
+                MD_Company.CompanyCode AS [Mc.CompanyCode], MD_Company.CompanyName AS [Mc.CompanyName], 
+                MD_Company.CompanyType_ID AS [Mc.CompanyType_ID], MD_Company.Actived AS [Mc.Actived], 
+                MD_Company.Remark AS [Mc.Remark], MD_CompanyType.ID AS [Mct.ID], 
+                MD_CompanyType.CompanyTypeCode AS [Mct.CompanyTypeCode], 
+                MD_CompanyType.CompanyTypeName AS [Mct.CompanyTypeCode], MD_CompanyType.Actived AS [Mct.Actived], 
+                MD_CompanyType.Remark AS [Mct.Remark], MD_Drugs.ID AS [Md.ID], MD_Drugs.DrugCode AS [Md.DrugCode], 
+                MD_Drugs.DrugName AS [Md.DrugName], MD_Drugs.UnitPrice AS [Md.UnitPrice], MD_Drugs.Standard AS [Md.Standard], 
+                MD_Drugs.Unit AS [Md.Unit], MD_Drugs.DrugFrom_ID AS [Md.DrugFrom_ID], 
+                MD_Drugs.DrugCategory_ID AS [Md.DrugCategory_ID], MD_Drugs.Actived AS [Md.Actived], 
+                MD_Drugs.Remark AS [Md.Remark], MD_DrugCategory.ID AS [Mdc.Id], 
+                MD_DrugCategory.DrugCategoryCode AS [Mdc.Code], MD_DrugCategory.DrugCategoryName AS [Mdc.Name], 
+                MD_DrugCategory.Actived AS [Mdc.Actived], MD_DrugCategory.Remark AS [Mdc.Remark], MD_DrugFrom.ID AS [Mdf.ID], 
+                MD_DrugFrom.DrugFromCode AS [Mdf.Code], MD_DrugFrom.DrugFromName AS [Mdf.Name], 
+                MD_DrugFrom.Actived AS [Mdf.Actived], MD_DrugFrom.Remark AS [Mdf.Remark], MD_Storehouse.ID AS [Msh.ID], 
+                MD_Storehouse.StorehouseCode AS [Msh.Code], MD_Storehouse.StorehouseName AS [Msh.Name], 
+                MD_Storehouse.Actived AS [Msh.Actived], MD_Storehouse.Remark AS [Msh.Remark]
+FROM      MD_Bills INNER JOIN
+                MD_BillsItem ON MD_Bills.ID = MD_BillsItem.Bills_ID INNER JOIN
+                MD_BillsType ON MD_Bills.BillsType_ID = MD_BillsType.ID INNER JOIN
+                MD_Company ON MD_Bills.Company_ID = MD_Company.ID INNER JOIN
+                MD_CompanyType ON MD_Company.CompanyType_ID = MD_CompanyType.ID INNER JOIN
+                MD_Drugs ON MD_BillsItem.Drugs_ID = MD_Drugs.ID INNER JOIN
+                MD_DrugCategory ON MD_Drugs.DrugCategory_ID = MD_DrugCategory.ID INNER JOIN
+                MD_DrugFrom ON MD_Drugs.DrugFrom_ID = MD_DrugFrom.ID INNER JOIN
+                MD_Storehouse ON MD_Bills.Storehouse_ID = MD_Storehouse.ID
+
+where MD_BillsType.Name=@ParambillTypeName and MD_Bills.Maker=@ParamMaker</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ParambillTypeName" ColumnName="Name" DataSourceName="DrugShop.dbo.MD_BillsType" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@ParambillTypeName" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Mbt.Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ParamMaker" ColumnName="Maker" DataSourceName="DrugShop.dbo.MD_Bills" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@ParamMaker" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Mb.Maker" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetBills" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetBills" msprop:Generator_UserDSName="DataSetBills">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableAllBills" msprop:Generator_TableClassName="DataTableAllBillsDataTable" msprop:Generator_TableVarName="tableDataTableAllBills" msprop:Generator_RowChangedName="DataTableAllBillsRowChanged" msprop:Generator_TablePropName="DataTableAllBills" msprop:Generator_RowDeletingName="DataTableAllBillsRowDeleting" msprop:Generator_RowChangingName="DataTableAllBillsRowChanging" msprop:Generator_RowEvHandlerName="DataTableAllBillsRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableAllBillsRowDeleted" msprop:Generator_RowClassName="DataTableAllBillsRow" msprop:Generator_UserTableName="DataTableAllBills" msprop:Generator_RowEvArgName="DataTableAllBillsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Mb_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Mb.ID" msprop:Generator_ColumnVarNameInTable="columnMb_ID" msprop:Generator_ColumnPropNameInRow="Mb_ID" msprop:Generator_ColumnPropNameInTable="Mb_IDColumn" msprop:Generator_UserColumnName="Mb_ID" type="xs:int" />
+              <xs:element name="Mb_BillsCode" msdata:Caption="Mb.BillsCode" msprop:Generator_ColumnVarNameInTable="columnMb_BillsCode" msprop:Generator_ColumnPropNameInRow="Mb_BillsCode" msprop:Generator_ColumnPropNameInTable="Mb_BillsCodeColumn" msprop:Generator_UserColumnName="Mb_BillsCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mb_Storehouse_ID" msdata:Caption="Mb.Storehouse_ID" msprop:Generator_ColumnVarNameInTable="columnMb_Storehouse_ID" msprop:Generator_ColumnPropNameInRow="Mb_Storehouse_ID" msprop:Generator_ColumnPropNameInTable="Mb_Storehouse_IDColumn" msprop:Generator_UserColumnName="Mb_Storehouse_ID" type="xs:int" />
+              <xs:element name="Mb_BillsType_ID" msdata:Caption="Mb.BillsType_ID" msprop:Generator_ColumnVarNameInTable="columnMb_BillsType_ID" msprop:Generator_ColumnPropNameInRow="Mb_BillsType_ID" msprop:Generator_ColumnPropNameInTable="Mb_BillsType_IDColumn" msprop:Generator_UserColumnName="Mb_BillsType_ID" type="xs:int" />
+              <xs:element name="Mb_MakerDate" msdata:Caption="Mb.MakerDate" msprop:Generator_ColumnVarNameInTable="columnMb_MakerDate" msprop:Generator_ColumnPropNameInRow="Mb_MakerDate" msprop:Generator_ColumnPropNameInTable="Mb_MakerDateColumn" msprop:Generator_UserColumnName="Mb_MakerDate" type="xs:dateTime" />
+              <xs:element name="Mb_CreateDate" msdata:Caption="Mb.CreateDate" msprop:Generator_ColumnVarNameInTable="columnMb_CreateDate" msprop:Generator_ColumnPropNameInRow="Mb_CreateDate" msprop:Generator_ColumnPropNameInTable="Mb_CreateDateColumn" msprop:Generator_UserColumnName="Mb_CreateDate" type="xs:dateTime" />
+              <xs:element name="Mb_Actived" msdata:Caption="Mb.Actived" msprop:Generator_ColumnVarNameInTable="columnMb_Actived" msprop:Generator_ColumnPropNameInRow="Mb_Actived" msprop:Generator_ColumnPropNameInTable="Mb_ActivedColumn" msprop:Generator_UserColumnName="Mb_Actived" type="xs:boolean" />
+              <xs:element name="Mb_IsCancleOut" msdata:Caption="Mb.IsCancleOut" msprop:Generator_ColumnVarNameInTable="columnMb_IsCancleOut" msprop:Generator_ColumnPropNameInRow="Mb_IsCancleOut" msprop:Generator_ColumnPropNameInTable="Mb_IsCancleOutColumn" msprop:Generator_UserColumnName="Mb_IsCancleOut" type="xs:boolean" />
+              <xs:element name="Mb_IsRedBill" msdata:Caption="Mb.IsRedBill" msprop:Generator_ColumnVarNameInTable="columnMb_IsRedBill" msprop:Generator_ColumnPropNameInRow="Mb_IsRedBill" msprop:Generator_ColumnPropNameInTable="Mb_IsRedBillColumn" msprop:Generator_UserColumnName="Mb_IsRedBill" type="xs:boolean" />
+              <xs:element name="Mb_Company_ID" msdata:Caption="Mb.Company_ID" msprop:Generator_ColumnVarNameInTable="columnMb_Company_ID" msprop:Generator_ColumnPropNameInRow="Mb_Company_ID" msprop:Generator_ColumnPropNameInTable="Mb_Company_IDColumn" msprop:Generator_UserColumnName="Mb_Company_ID" type="xs:int" />
+              <xs:element name="Mb_DisCount" msdata:Caption="Mb.DisCount" msprop:Generator_ColumnVarNameInTable="columnMb_DisCount" msprop:Generator_ColumnPropNameInRow="Mb_DisCount" msprop:Generator_ColumnPropNameInTable="Mb_DisCountColumn" msprop:Generator_UserColumnName="Mb_DisCount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Mb_Remark" msdata:Caption="Mb.Remark" msprop:Generator_ColumnVarNameInTable="columnMb_Remark" msprop:Generator_ColumnPropNameInRow="Mb_Remark" msprop:Generator_ColumnPropNameInTable="Mb_RemarkColumn" msprop:Generator_UserColumnName="Mb_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mbi_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Mbi.ID" msprop:Generator_ColumnVarNameInTable="columnMbi_ID" msprop:Generator_ColumnPropNameInRow="Mbi_ID" msprop:Generator_ColumnPropNameInTable="Mbi_IDColumn" msprop:Generator_UserColumnName="Mbi_ID" type="xs:int" />
+              <xs:element name="Mbi_Bills_ID" msdata:Caption="Mbi.Bills_ID" msprop:Generator_ColumnVarNameInTable="columnMbi_Bills_ID" msprop:Generator_ColumnPropNameInRow="Mbi_Bills_ID" msprop:Generator_ColumnPropNameInTable="Mbi_Bills_IDColumn" msprop:Generator_UserColumnName="Mbi_Bills_ID" type="xs:int" />
+              <xs:element name="Mbi_Drugs_ID" msdata:Caption="Mbi.Drugs_ID" msprop:Generator_ColumnVarNameInTable="columnMbi_Drugs_ID" msprop:Generator_ColumnPropNameInRow="Mbi_Drugs_ID" msprop:Generator_ColumnPropNameInTable="Mbi_Drugs_IDColumn" msprop:Generator_UserColumnName="Mbi_Drugs_ID" type="xs:int" />
+              <xs:element name="Mbi_UnitPrice" msdata:Caption="Mbi.UnitPrice" msprop:Generator_ColumnVarNameInTable="columnMbi_UnitPrice" msprop:Generator_ColumnPropNameInRow="Mbi_UnitPrice" msprop:Generator_ColumnPropNameInTable="Mbi_UnitPriceColumn" msprop:Generator_UserColumnName="Mbi_UnitPrice" type="xs:decimal" />
+              <xs:element name="Mbi_Count" msdata:Caption="Mbi.Count" msprop:Generator_ColumnVarNameInTable="columnMbi_Count" msprop:Generator_ColumnPropNameInRow="Mbi_Count" msprop:Generator_ColumnPropNameInTable="Mbi_CountColumn" msprop:Generator_UserColumnName="Mbi_Count" type="xs:int" />
+              <xs:element name="Mbi_Money" msdata:Caption="Mbi.Money" msprop:Generator_ColumnVarNameInTable="columnMbi_Money" msprop:Generator_ColumnPropNameInRow="Mbi_Money" msprop:Generator_ColumnPropNameInTable="Mbi_MoneyColumn" msprop:Generator_UserColumnName="Mbi_Money" type="xs:decimal" />
+              <xs:element name="Mbi_Remark" msdata:Caption="Mbi.Remark" msprop:Generator_ColumnVarNameInTable="columnMbi_Remark" msprop:Generator_ColumnPropNameInRow="Mbi_Remark" msprop:Generator_ColumnPropNameInTable="Mbi_RemarkColumn" msprop:Generator_UserColumnName="Mbi_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mbt_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Mbt.ID" msprop:Generator_ColumnVarNameInTable="columnMbt_ID" msprop:Generator_ColumnPropNameInRow="Mbt_ID" msprop:Generator_ColumnPropNameInTable="Mbt_IDColumn" msprop:Generator_UserColumnName="Mbt_ID" type="xs:int" />
+              <xs:element name="Mbt_Code" msdata:Caption="Mbt.Code" msprop:Generator_ColumnVarNameInTable="columnMbt_Code" msprop:Generator_ColumnPropNameInRow="Mbt_Code" msprop:Generator_ColumnPropNameInTable="Mbt_CodeColumn" msprop:Generator_UserColumnName="Mbt_Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mbt_Name" msdata:Caption="Mbt.Name" msprop:Generator_ColumnVarNameInTable="columnMbt_Name" msprop:Generator_ColumnPropNameInRow="Mbt_Name" msprop:Generator_ColumnPropNameInTable="Mbt_NameColumn" msprop:Generator_UserColumnName="Mbt_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mbt_IsOut" msdata:Caption="Mbt.IsOut" msprop:Generator_ColumnVarNameInTable="columnMbt_IsOut" msprop:Generator_ColumnPropNameInRow="Mbt_IsOut" msprop:Generator_ColumnPropNameInTable="Mbt_IsOutColumn" msprop:Generator_UserColumnName="Mbt_IsOut" type="xs:boolean" />
+              <xs:element name="MbtActived" msprop:Generator_ColumnVarNameInTable="columnMbtActived" msprop:Generator_ColumnPropNameInRow="MbtActived" msprop:Generator_ColumnPropNameInTable="MbtActivedColumn" msprop:Generator_UserColumnName="MbtActived" type="xs:boolean" />
+              <xs:element name="Mbt_Remark" msdata:Caption="Mbt.Remark" msprop:Generator_ColumnVarNameInTable="columnMbt_Remark" msprop:Generator_ColumnPropNameInRow="Mbt_Remark" msprop:Generator_ColumnPropNameInTable="Mbt_RemarkColumn" msprop:Generator_UserColumnName="Mbt_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mc_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Mc.ID" msprop:Generator_ColumnVarNameInTable="columnMc_ID" msprop:Generator_ColumnPropNameInRow="Mc_ID" msprop:Generator_ColumnPropNameInTable="Mc_IDColumn" msprop:Generator_UserColumnName="Mc_ID" type="xs:int" />
+              <xs:element name="Mc_CompanyCode" msdata:Caption="Mc.CompanyCode" msprop:Generator_ColumnVarNameInTable="columnMc_CompanyCode" msprop:Generator_ColumnPropNameInRow="Mc_CompanyCode" msprop:Generator_ColumnPropNameInTable="Mc_CompanyCodeColumn" msprop:Generator_UserColumnName="Mc_CompanyCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mc_CompanyName" msdata:Caption="Mc.CompanyName" msprop:Generator_ColumnVarNameInTable="columnMc_CompanyName" msprop:Generator_ColumnPropNameInRow="Mc_CompanyName" msprop:Generator_ColumnPropNameInTable="Mc_CompanyNameColumn" msprop:Generator_UserColumnName="Mc_CompanyName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mc_CompanyType_ID" msdata:Caption="Mc.CompanyType_ID" msprop:Generator_ColumnVarNameInTable="columnMc_CompanyType_ID" msprop:Generator_ColumnPropNameInRow="Mc_CompanyType_ID" msprop:Generator_ColumnPropNameInTable="Mc_CompanyType_IDColumn" msprop:Generator_UserColumnName="Mc_CompanyType_ID" type="xs:int" />
+              <xs:element name="Mc_Actived" msdata:Caption="Mc.Actived" msprop:Generator_ColumnVarNameInTable="columnMc_Actived" msprop:Generator_ColumnPropNameInRow="Mc_Actived" msprop:Generator_ColumnPropNameInTable="Mc_ActivedColumn" msprop:Generator_UserColumnName="Mc_Actived" type="xs:boolean" />
+              <xs:element name="Mc_Remark" msdata:Caption="Mc.Remark" msprop:Generator_ColumnVarNameInTable="columnMc_Remark" msprop:Generator_ColumnPropNameInRow="Mc_Remark" msprop:Generator_ColumnPropNameInTable="Mc_RemarkColumn" msprop:Generator_UserColumnName="Mc_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mct_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Mct.ID" msprop:Generator_ColumnVarNameInTable="columnMct_ID" msprop:Generator_ColumnPropNameInRow="Mct_ID" msprop:Generator_ColumnPropNameInTable="Mct_IDColumn" msprop:Generator_UserColumnName="Mct_ID" type="xs:int" />
+              <xs:element name="Mct_CompanyTypeCode" msdata:Caption="Mct.CompanyTypeCode" msprop:Generator_ColumnVarNameInTable="columnMct_CompanyTypeCode" msprop:Generator_ColumnPropNameInRow="Mct_CompanyTypeCode" msprop:Generator_ColumnPropNameInTable="Mct_CompanyTypeCodeColumn" msprop:Generator_UserColumnName="Mct_CompanyTypeCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mct_CompanyTypeCode1" msdata:Caption="Mct.CompanyTypeCode1" msprop:Generator_ColumnVarNameInTable="columnMct_CompanyTypeCode1" msprop:Generator_ColumnPropNameInRow="Mct_CompanyTypeCode1" msprop:Generator_ColumnPropNameInTable="Mct_CompanyTypeCode1Column" msprop:Generator_UserColumnName="Mct_CompanyTypeCode1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mct_Actived" msdata:Caption="Mct.Actived" msprop:Generator_ColumnVarNameInTable="columnMct_Actived" msprop:Generator_ColumnPropNameInRow="Mct_Actived" msprop:Generator_ColumnPropNameInTable="Mct_ActivedColumn" msprop:Generator_UserColumnName="Mct_Actived" type="xs:boolean" />
+              <xs:element name="Mct_Remark" msdata:Caption="Mct.Remark" msprop:Generator_ColumnVarNameInTable="columnMct_Remark" msprop:Generator_ColumnPropNameInRow="Mct_Remark" msprop:Generator_ColumnPropNameInTable="Mct_RemarkColumn" msprop:Generator_UserColumnName="Mct_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Md_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Md.ID" msprop:Generator_ColumnVarNameInTable="columnMd_ID" msprop:Generator_ColumnPropNameInRow="Md_ID" msprop:Generator_ColumnPropNameInTable="Md_IDColumn" msprop:Generator_UserColumnName="Md_ID" type="xs:int" />
+              <xs:element name="Md_DrugCode" msdata:Caption="Md.DrugCode" msprop:Generator_ColumnVarNameInTable="columnMd_DrugCode" msprop:Generator_ColumnPropNameInRow="Md_DrugCode" msprop:Generator_ColumnPropNameInTable="Md_DrugCodeColumn" msprop:Generator_UserColumnName="Md_DrugCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Md_DrugName" msdata:Caption="Md.DrugName" msprop:Generator_ColumnVarNameInTable="columnMd_DrugName" msprop:Generator_ColumnPropNameInRow="Md_DrugName" msprop:Generator_ColumnPropNameInTable="Md_DrugNameColumn" msprop:Generator_UserColumnName="Md_DrugName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Md_UnitPrice" msdata:Caption="Md.UnitPrice" msprop:Generator_ColumnVarNameInTable="columnMd_UnitPrice" msprop:Generator_ColumnPropNameInRow="Md_UnitPrice" msprop:Generator_ColumnPropNameInTable="Md_UnitPriceColumn" msprop:Generator_UserColumnName="Md_UnitPrice" type="xs:decimal" />
+              <xs:element name="Md_Standard" msdata:Caption="Md.Standard" msprop:Generator_ColumnVarNameInTable="columnMd_Standard" msprop:Generator_ColumnPropNameInRow="Md_Standard" msprop:Generator_ColumnPropNameInTable="Md_StandardColumn" msprop:Generator_UserColumnName="Md_Standard">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Md_Unit" msdata:Caption="Md.Unit" msprop:Generator_ColumnVarNameInTable="columnMd_Unit" msprop:Generator_ColumnPropNameInRow="Md_Unit" msprop:Generator_ColumnPropNameInTable="Md_UnitColumn" msprop:Generator_UserColumnName="Md_Unit">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Md_DrugFrom_ID" msdata:Caption="Md.DrugFrom_ID" msprop:Generator_ColumnVarNameInTable="columnMd_DrugFrom_ID" msprop:Generator_ColumnPropNameInRow="Md_DrugFrom_ID" msprop:Generator_ColumnPropNameInTable="Md_DrugFrom_IDColumn" msprop:Generator_UserColumnName="Md_DrugFrom_ID" type="xs:int" />
+              <xs:element name="Md_DrugCategory_ID" msdata:Caption="Md.DrugCategory_ID" msprop:Generator_ColumnVarNameInTable="columnMd_DrugCategory_ID" msprop:Generator_ColumnPropNameInRow="Md_DrugCategory_ID" msprop:Generator_ColumnPropNameInTable="Md_DrugCategory_IDColumn" msprop:Generator_UserColumnName="Md_DrugCategory_ID" type="xs:int" />
+              <xs:element name="Md_Actived" msdata:Caption="Md.Actived" msprop:Generator_ColumnVarNameInTable="columnMd_Actived" msprop:Generator_ColumnPropNameInRow="Md_Actived" msprop:Generator_ColumnPropNameInTable="Md_ActivedColumn" msprop:Generator_UserColumnName="Md_Actived" type="xs:boolean" />
+              <xs:element name="Md_Remark" msdata:Caption="Md.Remark" msprop:Generator_ColumnVarNameInTable="columnMd_Remark" msprop:Generator_ColumnPropNameInRow="Md_Remark" msprop:Generator_ColumnPropNameInTable="Md_RemarkColumn" msprop:Generator_UserColumnName="Md_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mdc_Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Mdc.Id" msprop:Generator_ColumnVarNameInTable="columnMdc_Id" msprop:Generator_ColumnPropNameInRow="Mdc_Id" msprop:Generator_ColumnPropNameInTable="Mdc_IdColumn" msprop:Generator_UserColumnName="Mdc_Id" type="xs:int" />
+              <xs:element name="Mdc_Code" msdata:Caption="Mdc.Code" msprop:Generator_ColumnVarNameInTable="columnMdc_Code" msprop:Generator_ColumnPropNameInRow="Mdc_Code" msprop:Generator_ColumnPropNameInTable="Mdc_CodeColumn" msprop:Generator_UserColumnName="Mdc_Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mdc_Name" msdata:Caption="Mdc.Name" msprop:Generator_ColumnVarNameInTable="columnMdc_Name" msprop:Generator_ColumnPropNameInRow="Mdc_Name" msprop:Generator_ColumnPropNameInTable="Mdc_NameColumn" msprop:Generator_UserColumnName="Mdc_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mdc_Actived" msdata:Caption="Mdc.Actived" msprop:Generator_ColumnVarNameInTable="columnMdc_Actived" msprop:Generator_ColumnPropNameInRow="Mdc_Actived" msprop:Generator_ColumnPropNameInTable="Mdc_ActivedColumn" msprop:Generator_UserColumnName="Mdc_Actived" type="xs:boolean" />
+              <xs:element name="Mdc_Remark" msdata:Caption="Mdc.Remark" msprop:Generator_ColumnVarNameInTable="columnMdc_Remark" msprop:Generator_ColumnPropNameInRow="Mdc_Remark" msprop:Generator_ColumnPropNameInTable="Mdc_RemarkColumn" msprop:Generator_UserColumnName="Mdc_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mdf_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Mdf.ID" msprop:Generator_ColumnVarNameInTable="columnMdf_ID" msprop:Generator_ColumnPropNameInRow="Mdf_ID" msprop:Generator_ColumnPropNameInTable="Mdf_IDColumn" msprop:Generator_UserColumnName="Mdf_ID" type="xs:int" />
+              <xs:element name="Mdf_Code" msdata:Caption="Mdf.Code" msprop:Generator_ColumnVarNameInTable="columnMdf_Code" msprop:Generator_ColumnPropNameInRow="Mdf_Code" msprop:Generator_ColumnPropNameInTable="Mdf_CodeColumn" msprop:Generator_UserColumnName="Mdf_Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mdf_Name" msdata:Caption="Mdf.Name" msprop:Generator_ColumnVarNameInTable="columnMdf_Name" msprop:Generator_ColumnPropNameInRow="Mdf_Name" msprop:Generator_ColumnPropNameInTable="Mdf_NameColumn" msprop:Generator_UserColumnName="Mdf_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mdf_Actived" msdata:Caption="Mdf.Actived" msprop:Generator_ColumnVarNameInTable="columnMdf_Actived" msprop:Generator_ColumnPropNameInRow="Mdf_Actived" msprop:Generator_ColumnPropNameInTable="Mdf_ActivedColumn" msprop:Generator_UserColumnName="Mdf_Actived" type="xs:boolean" />
+              <xs:element name="Mdf_Remark" msdata:Caption="Mdf.Remark" msprop:Generator_ColumnVarNameInTable="columnMdf_Remark" msprop:Generator_ColumnPropNameInRow="Mdf_Remark" msprop:Generator_ColumnPropNameInTable="Mdf_RemarkColumn" msprop:Generator_UserColumnName="Mdf_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mb_Maker" msdata:Caption="Mb.Maker" msprop:Generator_ColumnVarNameInTable="columnMb_Maker" msprop:Generator_ColumnPropNameInRow="Mb_Maker" msprop:Generator_ColumnPropNameInTable="Mb_MakerColumn" msprop:Generator_UserColumnName="Mb_Maker">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Msh_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="Msh.ID" msprop:Generator_ColumnVarNameInTable="columnMsh_ID" msprop:Generator_ColumnPropNameInRow="Msh_ID" msprop:Generator_ColumnPropNameInTable="Msh_IDColumn" msprop:Generator_UserColumnName="Msh_ID" type="xs:int" />
+              <xs:element name="Msh_Code" msdata:Caption="Msh.Code" msprop:Generator_ColumnVarNameInTable="columnMsh_Code" msprop:Generator_ColumnPropNameInRow="Msh_Code" msprop:Generator_ColumnPropNameInTable="Msh_CodeColumn" msprop:Generator_UserColumnName="Msh_Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Msh_Name" msdata:Caption="Msh.Name" msprop:Generator_ColumnVarNameInTable="columnMsh_Name" msprop:Generator_ColumnPropNameInRow="Msh_Name" msprop:Generator_ColumnPropNameInTable="Msh_NameColumn" msprop:Generator_UserColumnName="Msh_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Msh_Actived" msdata:Caption="Msh.Actived" msprop:Generator_ColumnVarNameInTable="columnMsh_Actived" msprop:Generator_ColumnPropNameInRow="Msh_Actived" msprop:Generator_ColumnPropNameInTable="Msh_ActivedColumn" msprop:Generator_UserColumnName="Msh_Actived" type="xs:boolean" />
+              <xs:element name="Msh_Remark" msdata:Caption="Msh.Remark" msprop:Generator_ColumnVarNameInTable="columnMsh_Remark" msprop:Generator_ColumnPropNameInRow="Msh_Remark" msprop:Generator_ColumnPropNameInTable="Msh_RemarkColumn" msprop:Generator_UserColumnName="Msh_Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTableAllBills" />
+      <xs:field xpath="mstns:Mb_ID" />
+      <xs:field xpath="mstns:Mbi_ID" />
+      <xs:field xpath="mstns:Mbt_ID" />
+      <xs:field xpath="mstns:Mc_ID" />
+      <xs:field xpath="mstns:Mct_ID" />
+      <xs:field xpath="mstns:Md_ID" />
+      <xs:field xpath="mstns:Mdc_Id" />
+      <xs:field xpath="mstns:Mdf_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
